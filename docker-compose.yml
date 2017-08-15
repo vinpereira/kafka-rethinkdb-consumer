@@ -12,9 +12,6 @@ services:
   consumer:  
     container_name: rethinkdb-consumer
     image: vinpereira/kafka-rethinkdb-consumer
-    build:
-      context: .
-      dockerfile: Dockerfile
     links:
       - rethinkdb
     depends_on:

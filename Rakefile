@@ -13,3 +13,7 @@ end
 task :delete_table do
   ruby 'db/delete_table.rb'
 end
+
+task :build_image do
+  sh 'docker build -t vinpereira/kafka-rethinkdb-consumer:latest .', verbose: false
+end
