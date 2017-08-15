@@ -1,0 +1,25 @@
+version: '3'
+services:
+  rethinkdb:
+    container_name: rethinkdb
+    image: rethinkdb
+    ports:
+      - 28015:28015 
+      - 29015:29015 
+      - 8080:8080
+    volumes:
+      - data-volume:/data
+  consumer:  
+    container_name: rethinkdb-consumer
+    image: vinpereira/kafka-rethinkdb-consumer
+    build:
+      context: .
+      dockerfile: Dockerfile
+    links:
+      - rethinkdb
+    depends_on:
+      - rethinkdb
+    restart: on-failure
+
+volumes:
+  data-volume:
