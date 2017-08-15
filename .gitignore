@@ -1,0 +1,2 @@
+# Ignore RethinkDB data
+rethinkdb_data/
